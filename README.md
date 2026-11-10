@@ -137,14 +137,4 @@ CreditWise/
 
 **Built as a Machine Learning project using Python and Scikit-learn.**
 
-## 📁 Project Structure
-
-```text
-CreditWise_LoanPredictor/
-│
-├── README.md
-├── loan_predictor_final.ipynb
-├── loan_approval_data.csv
-└── .gitignore
-```
 
