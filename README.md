@@ -91,7 +91,7 @@ These results are based on the current dataset and train-test split. They do not
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/dixitkushagra416-ship-it/CreditWise_LoanPredictor>
 cd CreditWise
 ```
 
