@@ -1,122 +1,140 @@
-# CreditWise_LoanPredictor
-ML-based Loan Approval Prediction using Decision Tree, with EDA, data preprocessing, GridSearchCV, and cost-complexity pruning. Achieved 96.84% test accuracy and 0.96 macro F1-score. Built using Python, Pandas, NumPy, and Scikit-learn.
-# CreditWise – Loan Approval Prediction System
+# 🏦 CreditWise — Loan Approval Prediction System
 
-A Machine Learning project that predicts loan approval outcomes using a Decision Tree Classifier. The project focuses on exploratory data analysis, data preprocessing, model training, hyperparameter optimization, and performance evaluation.
+CreditWise is a Machine Learning project that predicts whether a loan application is likely to be approved or rejected based on an applicant's financial, personal, employment, and loan-related information.
 
-## Project Overview
+The project uses a **Decision Tree Classifier** with preprocessing and hyperparameter tuning through GridSearchCV.
 
-CreditWise aims to predict whether a loan application will be approved or rejected based on applicant and financial information.
+##  Project Objective
 
-## Key Features
+The objective of CreditWise is to build a machine learning model that can analyse applicant information and predict loan approval outcomes.
 
-- Exploratory Data Analysis (EDA)
-- Missing value detection and imputation
-- Numerical and categorical feature preprocessing
-- One-Hot Encoding
-- Decision Tree Classification
-- Class balancing using `class_weight`
-- Hyperparameter tuning with GridSearchCV
-- Cost-complexity pruning using `ccp_alpha`
-- 5-fold cross-validation
-- Model evaluation using classification reports and confusion matrices
+The project demonstrates a complete ML workflow, from data exploration and preprocessing to model training, evaluation, and deployment.
+
+##  Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Streamlit
+- Joblib
+
+## Dataset Overview
+
+The dataset contains 1,000 records and 20 columns.
+
+It includes information such as:
+
+- Applicant income and co-applicant income
+- Credit score
+- Debt-to-income ratio
+- Existing loans
+- Savings and collateral value
+- Loan amount and loan term
+- Employment status
+- Education level
+- Marital status
+- Loan purpose
+- Property area
+
+**Target Variable:** `Loan_Approved`
+
+- `Yes` — Loan approved
+- `No` — Loan not approved
+
+Rows with missing target values are excluded during model training.
+
+##  Machine Learning Workflow
+
+1. **Exploratory Data Analysis (EDA)**
+   - Analysed target distribution.
+   - Explored applicant demographics.
+   - Examined relationships between credit scores and loan approval.
+
+2. **Data Preprocessing**
+   - Removed `Applicant_ID` from model features.
+   - Handled missing numerical values using median imputation.
+   - Handled missing categorical values using most-frequent imputation.
+   - Applied One-Hot Encoding to categorical features.
+
+3. **Model Training**
+   - Used a Decision Tree Classifier.
+   - Applied class balancing using `class_weight="balanced"`.
+
+4. **Hyperparameter Tuning**
+   - Used GridSearchCV with 5-fold cross-validation.
+   - Optimised using macro F1-score.
+   - Applied Cost Complexity Pruning through `ccp_alpha`.
+
+5. **Model Evaluation**
+   - Evaluated the selected model on a separate test dataset.
+   - Used accuracy, precision, recall, F1-score, and confusion matrix.
 
 ## Model Performance
 
 | Metric | Score |
 |---|---:|
 | Test Accuracy | 96.84% |
-| Macro Precision | 0.96 |
-| Macro Recall | 0.97 |
-| Macro F1-Score | 0.96 |
+| Macro F1-Score | 0.9641 |
 | Best CV Macro F1 | 0.9582 |
 
-**Best Hyperparameter:** `ccp_alpha = 0.005`
+**Best Hyperparameter:**
 
-## Visualizations
+`ccp_alpha = 0.005`
 
-The project includes the following visualizations:
+These results are based on the current dataset and train-test split. They do not guarantee performance on unseen real-world loan applications.
 
-1. Loan Approval Distribution by Gender
-2. Applicant Gender Distribution
-3. Education Level by Gender
-4. Credit Score vs Loan Approval
-5. Confusion Matrix
+##  Run Locally
 
-All exported plots are available in the `assets/plots/` directory.
+Clone the repository:
 
-## Technologies Used
+```bash
+git clone <your-repository-url>
+cd CreditWise
+```
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
 
 ## Project Structure
 
 ```text
 CreditWise/
 │
-├── assets/
-│   └── plots/
-│       ├── loan_approval_by_gender.png
-│       ├── applicant_gender_distribution.png
-│       ├── education_level_by_gender.png
-│       ├── credit_score_vs_loan_approval.png
-│       └── confusion_matrix.png
-│
-├── loan_predictor_final.ipynb
+├── app.py
+├── train.py
+├── model.joblib
 ├── loan_approval_data.csv
 ├── requirements.txt
-├── .gitignore
-└── README.md
+├── metrics.json
+├── README.md
+└── .gitignore
 ```
 
-## Installation and Usage
+##  Future Improvements
 
-**1. Clone the repository**
-
-```bash
-git clone <YOUR_REPOSITORY_URL>
-```
-
-**2. Navigate to the project directory**
-
-```bash
-cd CreditWise
-```
-
-**3. Install dependencies**
-
-```bash
-pip install -r requirements.txt
-```
-
-**4. Launch Jupyter Notebook**
-
-```bash
-jupyter notebook
-```
-
-Open `loan_predictor_final.ipynb` and run the cells.
-
-**Note:** Place `loan_approval_data.csv` in the project root directory before executing the notebook.
-
-## Future Improvements
-
-- Compare Decision Tree with Random Forest and Logistic Regression.
-- Implement ROC-AUC and Precision-Recall evaluation.
+- Experiment with Random Forest and XGBoost.
+- Improve model generalisation.
 - Perform feature importance analysis.
-- Investigate model fairness and potential data leakage.
-- Explore deployment using Flask or Streamlit.
+- Add model explainability using SHAP.
+- Improve the Streamlit interface.
+- Evaluate fairness and probability calibration.
 
-## Disclaimer
+## ⚠️ Disclaimer
 
-This project is developed for educational and portfolio purposes. Predictions should not be used as the sole basis for real-world lending decisions.
+CreditWise is an educational and portfolio project. It is not a real banking or financial decision-making system and should not be used to approve or reject actual loan applications.
 
 ---
 
-**Developed as part of my Machine Learning learning journey.**
+**Built as a Machine Learning project using Python and Scikit-learn.**
