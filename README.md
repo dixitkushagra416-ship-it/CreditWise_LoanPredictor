@@ -131,9 +131,7 @@ CreditWise/
 - Improve the Streamlit interface.
 - Evaluate fairness and probability calibration.
 
-## ⚠️ Disclaimer
 
-CreditWise is an educational and portfolio project. It is not a real banking or financial decision-making system and should not be used to approve or reject actual loan applications.
 
 ---
 
