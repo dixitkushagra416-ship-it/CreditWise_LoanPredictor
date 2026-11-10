@@ -1,0 +1,6 @@
+import joblib
+
+final_model = grid.best_estimator_
+final_model.fit(x, y)
+
+joblib.dump(final_model, "model.joblib")
