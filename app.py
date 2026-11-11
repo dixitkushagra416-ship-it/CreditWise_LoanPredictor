@@ -53,4 +53,5 @@ with st.form("loan_form"):
     applicant_income = st.number_input("Applicant Income", min_value=0.0, value=12000.0)
     coapplicant_income = st.number_input("Coapplicant Income", min_value=0.0, value=3000.0)
     credit_score = st.number_input("Credit Score", min_value=300, max_value=900, value=700)
-    dti_ratio = st.number_input("DTI Ratio", min_value=0.0, max_value=1.0,
+    dti_ratio = st.number_input("DTI Ratio", min_value
+    
