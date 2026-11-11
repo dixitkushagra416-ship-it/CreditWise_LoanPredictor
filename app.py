@@ -14,6 +14,19 @@ def load_model():
     return joblib.load("model.joblib")
 
 model = load_model()
+def patch_imputer(pipeline_or_transformer):
+    # If the model has steps (Pipeline)
+    if hasattr(pipeline_or_transformer, "named_steps"):
+        for step in pipeline_or_transformer.named_steps.values():
+            patch_imputer(step)
+    # If it's a ColumnTransformer
+    elif hasattr(pipeline_or_transformer, "transformers_"):
+        for _, trans, _ in pipeline_or_transformer.transformers_:
+            patch_imputer(trans)
+    # If it is SimpleImputer and missing _fill_dtype
+    elif hasattr(pipeline_or_transformer, "statistics_"):
+        if not hasattr(pipeline_or_transformer, "_fill_dtype"):
+            pipeline_or_transformer._fill_dtype = pipeline_or_transformer.statistics_.dtype
 
 st.title("🏦 CreditWise")
 st.subheader("Loan Approval Prediction System")
